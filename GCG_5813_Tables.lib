@@ -1,0 +1,109 @@
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Check_Tables.Start
+f.Intrinsic.Control.Try
+	v.Local.sError.Declare	
+	v.Local.bExist.Declare
+	Function.ODBC.Connection!con.TableExists("GCG_5813_Doc",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist.Not)
+		f.ODBC.Connection!con.Execute("CREATE TABLE GCG_5813_Doc( JS VARCHAR(10), Doc BIT DEFAULT '0' NOT NULL );CREATE INDEX GCG_5813_00 ON GCG_5813_Doc ( JS );")
+	f.Intrinsic.Control.Endif	
+	
+	Function.ODBC.Connection!con.TableExists("GCG_5813_Doc_Notes",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist.Not)
+		f.ODBC.Connection!con.Execute("CREATE TABLE GCG_5813_Doc_Notes( JS VARCHAR(10), Note VARCHAR(100), NoteTime DATETIME, UserID CHAR(8), NoteID IDENTITY DEFAULT '0' CONSTRAINT UK_NoteID UNIQUE USING 0 );")
+	f.Intrinsic.Control.Endif	
+
+	Function.ODBC.Connection!con.TableExists("GCG_5813_Notes_Users",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist.Not)
+		f.ODBC.Connection!con.Execute("CREATE TABLE GCG_5813_Notes_Users( UserID CHAR(8), Name VARCHAR(30), ChangeNote BIT DEFAULT '0' NOT NULL, DeleteNote BIT DEFAULT '0' NOT NULL, AddNote BIT DEFAULT '0' NOT NULL, NoteType VARCHAR(10) );")
+	f.Intrinsic.Control.Endif	
+
+	Function.ODBC.Connection!con.TableExists("GCG_5813_OpCodes",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist.Not)
+		f.ODBC.Connection!con.Execute("CREATE TABLE GCG_5813_OpCodes ( OpCode CHAR(6), Description VARCHAR(30) );")
+	f.Intrinsic.Control.Endif	
+
+	Function.ODBC.Connection!con.TableExists("GCG_5813_SOWO_Notes",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist.Not)
+		f.ODBC.Connection!con.Execute(" CREATE TABLE GCG_5813_SOWO_Notes ( SOJS VARCHAR(50), NoteNum TINYINT DEFAULT '1', Note VARCHAR(100), NoteTime DATETIME, UserID CHAR(8), NoteID IDENTITY DEFAULT '0' CONSTRAINT UK_NoteID UNIQUE USING 1 );")
+	f.Intrinsic.Control.Endif	
+
+	Function.ODBC.Connection!con.TableExists("GCG_5813_WC",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist.Not)
+		f.ODBC.Connection!con.Execute("CREATE TABLE GCG_5813_WC ( WC CHAR(4), Description VARCHAR(30) );")
+	f.Intrinsic.Control.Endif	
+
+	Function.ODBC.Connection!con.TableExists("GCG_5813_SOWO",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist.Not)
+		f.ODBC.Connection!con.Execute("CREATE TABLE GCG_5813_SOWO  ( SO CHAR(7), Line CHAR(4), Job CHAR(6), Suffix CHAR(3) )")
+	f.Intrinsic.Control.Endif	
+
+
+	'Check table again to create Index
+	Function.ODBC.Connection!con.TableExists("GCG_5813_Doc",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+	
+		f.Intrinsic.Control.CallSub("Check_Index","sTable","GCG_5813_Doc","sIndex","GCG_5813_00")
+		f.Intrinsic.Control.If(v.Args.bExist,=,False)
+			f.ODBC.Connection!con.Execute("CREATE INDEX GCG_5813_00 ON GCG_5813_Doc ( JS );")
+		f.Intrinsic.Control.EndIf	
+	f.Intrinsic.Control.Endif
+
+	'Check table again to create Index
+	Function.ODBC.Connection!con.TableExists("GCG_5813_Doc_Notes",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+	
+		f.Intrinsic.Control.CallSub("Check_Index","sTable","GCG_5813_Doc_Notes","sIndex","GCG_5813_01")
+		f.Intrinsic.Control.If(v.Args.bExist,=,False)
+			f.ODBC.Connection!con.Execute("CREATE INDEX GCG_5813_01 ON GCG_5813_Doc_Notes ( JS );")
+		f.Intrinsic.Control.EndIf	
+	f.Intrinsic.Control.Endif
+	
+	'Check table again to create Index
+	Function.ODBC.Connection!con.TableExists("GCG_5813_Notes_Users",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+	
+		f.Intrinsic.Control.CallSub("Check_Index","sTable","GCG_5813_Notes_Users","sIndex","GCG_5813_02")
+		f.Intrinsic.Control.If(v.Args.bExist,=,False)
+			f.ODBC.Connection!con.Execute("CREATE INDEX GCG_5813_02  ON GCG_5813_Notes_Users ( UserID );")
+		f.Intrinsic.Control.EndIf	
+	f.Intrinsic.Control.Endif
+
+	'Check table again to create Index
+	Function.ODBC.Connection!con.TableExists("GCG_5813_SOWO_Notes ",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+	
+		f.Intrinsic.Control.CallSub("Check_Index","sTable","GCG_5813_SOWO_Notes ","sIndex","GCG_5813_03")
+		f.Intrinsic.Control.If(v.Args.bExist,=,False)
+			f.ODBC.Connection!con.Execute("CREATE INDEX GCG_5813_03  ON GCG_5813_SOWO_Notes ( SOJS, NoteNum, NoteTime DESC );")
+		f.Intrinsic.Control.EndIf	
+	f.Intrinsic.Control.Endif
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(v.Local.sError)
+F.Intrinsic.Control.EndTry
+Program.Sub.Check_Tables.End
+
+Program.Sub.Check_Index.Start
+f.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sRet.Declare
+	v.Local.bExist.Declare
+	
+	f.Intrinsic.String.Build("Select Xf$Name As TableName,F1.XE$Name As FieldName,F1.Xe$DataType as DataType FROM X$File INNER JOIN X$Field F1 On F1.XE$File = XF$ID WHERE Xf$Name = '{0}' and F1.XE$Name = '{1}'",v.Args.sTable,v.Args.sIndex,v.Local.sSQL)
+	f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Ambient.ExecuteAndReturnEOF.Not)
+		v.Local.bExist.Set(True)
+	f.Intrinsic.Control.EndIf
+	f.Intrinsic.Variable.AddRV("bExist",v.Local.bExist)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(v.Local.sError)
+F.Intrinsic.Control.EndTry
+Program.Sub.Check_Index.End
+
