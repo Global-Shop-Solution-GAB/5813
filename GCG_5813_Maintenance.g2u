@@ -1,0 +1,721 @@
+Program.Sub.ScreenSU.Start
+Gui.Form..Create
+Gui.Form..Caption("SO WO 5813 Maintenance")
+Gui.Form..Size(17460,10230)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..BackColor(-2147483633)
+Gui.Form..MousePointer(0)
+Gui.Form..Event(UnLoad,Form_UnLoad)
+Gui.Form.txtUser.Create(TextBox,"",True,1185,300,0,150,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtUser.MaxLength(8)
+Gui.Form.lbl1.Create(Label,"User",True,825,255,0,150,285,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl2.Create(Label,"Name",True,825,255,0,1500,285,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtName.Create(TextBox,"",True,2730,300,0,1500,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtName.MaxLength(75)
+Gui.Form.cmdBrowseUser.Create(Button)
+Gui.Form.cmdBrowseUser.Size(855,375)
+Gui.Form.cmdBrowseUser.Position(4365,465)
+Gui.Form.cmdBrowseUser.Caption("^")
+Gui.Form.cmdBrowseUser.Event(Click,cmdBrowseUser_Click)
+Gui.Form.cmdSaveUser.Create(Button)
+Gui.Form.cmdSaveUser.Size(855,375)
+Gui.Form.cmdSaveUser.Position(4365,1125)
+Gui.Form.cmdSaveUser.Caption("Save")
+Gui.Form.cmdSaveUser.Event(Click,cmdSaveUser_Click)
+Gui.Form.chkAdd.Create(CheckBox)
+Gui.Form.chkAdd.Size(780,360)
+Gui.Form.chkAdd.Position(2535,1140)
+Gui.Form.chkAdd.Caption("Add")
+Gui.Form.chkChange.Create(CheckBox)
+Gui.Form.chkChange.Size(975,360)
+Gui.Form.chkChange.Position(1500,1140)
+Gui.Form.chkChange.Caption("Change")
+Gui.Form.chkDelete.Create(CheckBox)
+Gui.Form.chkDelete.Size(885,360)
+Gui.Form.chkDelete.Position(3450,1140)
+Gui.Form.chkDelete.Caption("Delete")
+Gui.Form.ddlNoteType.Create(DropDownList)
+Gui.Form.ddlNoteType.Size(1185,330)
+Gui.Form.ddlNoteType.Position(150,1140)
+Gui.Form.lbl3.Create(Label,"Note Type",True,825,255,0,150,915,True,0,"Arial",8,-2147483633,0)
+Gui.Form.gsUsers.Create(GsGridControl)
+Gui.Form.gsUsers.Size(8265,7560)
+Gui.Form.gsUsers.Position(150,1695)
+Gui.Form.gsUsers.Event(RowCellClick,gsUsers_RowCellClick)
+Gui.Form.gsUsers.Event(CellValueChanged,gsUsers_CellValueChanged)
+Gui.Form.txtWC.Create(TextBox,"",True,855,300,0,8565,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtWC.MaxLength(4)
+Gui.Form.lblWC.Create(Label,"WC",True,825,255,0,8565,285,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtWCDescr.Create(TextBox,"",True,2340,300,0,9585,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtWCDescr.MaxLength(20)
+Gui.Form.lblWCDesc.Create(Label,"Description",True,1035,255,0,9585,285,True,0,"Arial",8,-2147483633,0)
+Gui.Form.cmdBrowseWC.Create(Button)
+Gui.Form.cmdBrowseWC.Size(735,375)
+Gui.Form.cmdBrowseWC.Position(12045,465)
+Gui.Form.cmdBrowseWC.Caption("^")
+Gui.Form.cmdBrowseWC.Event(Click,cmdBrowseWC_Click)
+Gui.Form.cmdSaveOpCode.Create(Button)
+Gui.Form.cmdSaveOpCode.Size(855,375)
+Gui.Form.cmdSaveOpCode.Position(12975,1125)
+Gui.Form.cmdSaveOpCode.Caption("Save")
+Gui.Form.cmdSaveOpCode.Event(Click,cmdSaveOpCode_Click)
+Gui.Form.cmdSaveWC.Create(Button)
+Gui.Form.cmdSaveWC.Size(855,375)
+Gui.Form.cmdSaveWC.Position(8565,1125)
+Gui.Form.cmdSaveWC.Caption("Save")
+Gui.Form.cmdSaveWC.Event(Click,cmdSaveWC_Click)
+Gui.Form.gsWCs.Create(GsGridControl)
+Gui.Form.gsWCs.Size(4215,7560)
+Gui.Form.gsWCs.Position(8565,1695)
+Gui.Form.gsWCs.Event(RowCellClick,gsWCs_RowCellClick)
+Gui.Form.gsWCs.Event(CellValueChanged,gsWCs_CellValueChanged)
+Gui.Form.txtOpCode.Create(TextBox,"",True,855,300,0,12975,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtOpCode.MaxLength(6)
+Gui.Form.txtOpCodeDescr.Create(TextBox,"",True,2370,300,0,13980,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtOpCodeDescr.MaxLength(30)
+Gui.Form.lblOpCodes.Create(Label,"OpCodes",True,825,255,0,12975,285,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblOpDescr.Create(Label,"Description",True,1035,255,0,13980,285,True,0,"Arial",8,-2147483633,0)
+Gui.Form.gsOpCodes.Create(GsGridControl)
+Gui.Form.gsOpCodes.Size(4215,7560)
+Gui.Form.gsOpCodes.Position(12975,1695)
+Gui.Form.gsOpCodes.Event(RowCellClick,gsOpCodes_RowCellClick)
+Gui.Form.gsOpCodes.Event(CellValueChanged,gsOpCodes_CellValueChanged)
+Gui.Form.cmdBrowseOpCode.Create(Button)
+Gui.Form.cmdBrowseOpCode.Size(735,375)
+Gui.Form.cmdBrowseOpCode.Position(16470,465)
+Gui.Form.cmdBrowseOpCode.Caption("^")
+Gui.Form.cmdBrowseOpCode.Event(Click,cmdBrowseOpCode_Click)
+Gui.Form.lbl4.Create(Label,"(*) For User field from 1 to 5, Doc. Compl, or Doc. Note, we only care about Change value. In that case, if a field is marked as Change, user will have full authority to add/change the note of that field.",True,15255,255,0,135,9405,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl4.FontStyle(False,True,False,False,False)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global.bLoadUser.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'BN, Jan, 2019
+'Project 5813: SO / WO Dashboard
+'Customer: U.S. BOLT MANUFACTURING, INC.
+
+
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	v.Local.iCnt.Declare
+	v.Local.sNoteLabel.Declare
+	v.Local.bGo.Declare
+	
+	f.Global.Security.IsInGroup(v.Caller.User,"MAIN5813",V.Caller.CompanyCode,V.Local.bGo)
+	f.Intrinsic.Control.If(v.Caller.User,=,"SUPERVSR")
+		V.Local.bGo.Set(True)
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.Local.bGo.Not)
+		f.Intrinsic.UI.Msgbox("User must be in security group MAIN5813 or Supervsr to use the program.","Attention")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	f.ODBC.Connection!con.OpenCompanyConnection	
+	
+	gui.Form.ddlNoteType.AddItem("All")
+	gui.Form.ddlNoteType.AddItem("All User Fields")
+	gui.Form.ddlNoteType.AddItem("All Note Fields")
+	gui.Form.ddlNoteType.AddItem("Doc. Compl")
+	gui.Form.ddlNoteType.AddItem("Doc. Note")
+	gui.Form.ddlNoteType.AddItem("User 1")
+	gui.Form.ddlNoteType.AddItem("User 2")
+	gui.Form.ddlNoteType.AddItem("User 3")
+	gui.Form.ddlNoteType.AddItem("User 4")
+	gui.Form.ddlNoteType.AddItem("User 5")
+	f.Intrinsic.Control.For(v.Local.iCnt,1,15,1)
+		f.Intrinsic.String.Build("Note {0}",v.Local.iCnt,v.Local.sNoteLabel)
+		gui.Form.ddlNoteType.AddItem(v.Local.sNoteLabel)
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+	gui.Form.ddlNoteType.ListIndex(0)
+	
+	f.Intrinsic.Control.CallSub("Bind_Users")
+	f.Intrinsic.Control.CallSub("Bind_WCs")
+	f.Intrinsic.Control.CallSub("Bind_OpCodes")
+	
+	f.Intrinsic.Control.CallSub("Set_Anchors")
+
+	gui.Form..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project 5813 - GCG_5813_Maintenance.g2u: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub("Unload") 
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.UnLoad.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	f.Intrinsic.Control.If(v.ODBC.con.State,=,1)
+		F.ODBC.Connection!con.Close
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.ODBC.ccon.State,=,1)
+		F.ODBC.Connection!ccon.Close
+	f.Intrinsic.Control.EndIf	
+	
+	F.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project 5813 - GCG_5813_Maintenance.g2u: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.UnLoad.End
+
+Program.Sub.Form_UnLoad.Start
+f.Intrinsic.Control.CallSub("Serialize")
+f.Intrinsic.Control.CallSub("Unload")
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.Set_Anchors.Start
+	'0 - None 	'1 - Top 	'2 - Bottom 	'4 - Left 	'8 - Right
+	gui.Form.gsUsers.Anchor(15)
+	gui.Form.lblWC.Anchor(9)
+	gui.Form.lblWCDesc.Anchor(9)
+	gui.Form.lblOpCodes.Anchor(9)
+	gui.Form.lblOpDescr.Anchor(9)
+	gui.Form.txtWC.Anchor(9)
+	gui.Form.txtWCDescr.Anchor(9)
+	gui.Form.cmdBrowseWC.Anchor(9)
+	gui.Form.cmdSaveWC.Anchor(9)
+	gui.Form.txtOpCode.Anchor(9)
+	gui.Form.txtOpCodeDescr.Anchor(9)
+	gui.Form.cmdSaveOpCode.Anchor(9)
+	gui.Form.cmdBrowseOpCode.Anchor(9)
+	gui.Form.gsWCs.Anchor(11)
+	gui.Form.gsOpCodes.Anchor(11)
+	gui.Form.lbl4.Anchor(6)
+	
+Program.Sub.Set_Anchors.End
+
+Program.Sub.Bind_Users.Start
+F.Intrinsic.Control.Try
+	v.local.sError.Declare 
+	v.local.sRet.Declare
+	
+	f.Intrinsic.Control.If(v.Global.bLoadUser)
+		f.Intrinsic.Control.CallSub("Serialize")
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.DataTable.NoteUsers.Exists)
+		f.Data.DataTable.Close("NoteUsers")
+	f.Intrinsic.Control.EndIf
+	f.Data.DataTable.CreateFromSQL("NoteUsers","con","Select UserID,Name,NoteType,ChangeNote,AddNote,DeleteNote from GCG_5813_Notes_Users Order by UserID",True)
+	f.Data.DataTable.AddColumn("NoteUsers","Delete","String","Delete")
+	gui.Form.gsUsers.AddGridviewFromDatatable("gvNotes","NoteUsers")
+	gui.Form.gsUsers.SuspendLayout()
+	
+	gui.Form.gsUsers.SetGridviewProperty("gvNotes","OptionsViewShowGroupPanel",True)
+	gui.Form.gsUsers.SetGridviewProperty("gvNotes","OptionsViewShowAutoFilterRow",True)
+	
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","Delete","AllowEdit",False)
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","Delete","ReadOnly",True)
+	
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","ChangeNote","AllowEdit",True)
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","ChangeNote","ReadOnly",False)	
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","DeleteNote","AllowEdit",True)
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","DeleteNote","ReadOnly",False)
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","AddNote","AllowEdit",True)
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","AddNote","ReadOnly",False)	
+	
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","UserID","Caption","User ID")
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","NoteType","Caption","Note Type")
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","ChangeNote","Caption","Change Note")
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","DeleteNote","Caption","Delete Note")
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","AddNote","Caption","Add Note")
+	
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","ChangeNote","HeaderHAlignment","Center")
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","DeleteNote","HeaderHAlignment","Center")
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","AddNote","HeaderHAlignment","Center")	
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","Delete","HeaderHAlignment","Center")
+	
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","UserID","Width","35")
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","NoteType","Width","45")
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","ChangeNote","Width","45")
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","DeleteNote","Width","45")
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","AddNote","Width","45")
+	gui.Form.gsUsers.SetColumnProperty("gvNotes","Delete","Width","45")
+	
+	gui.Form.gsUsers.ColumnEdit("gvNotes","Delete","EditorButton","Delete")
+	v.Global.bLoadUser.Set(True)	
+	gui.Form.gsUsers.ResumeLayout()
+	gui.Form.gsUsers.MainView("gvNotes")	
+	f.Intrinsic.Control.CallSub("Deserialize")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+
+Program.Sub.Bind_Users.End
+
+Program.Sub.Bind_WCs.Start
+F.Intrinsic.Control.Try
+	v.local.sError.Declare 
+	v.local.sRet.Declare	
+
+	f.Intrinsic.Control.If(v.DataTable.WorkCenters.Exists)
+		f.Data.DataTable.Close("WorkCenters")
+	f.Intrinsic.Control.EndIf
+	f.Data.DataTable.CreateFromSQL("WorkCenters","con","Select WC,Description from GCG_5813_WC order by WC",True)
+	f.Data.DataTable.AddColumn("WorkCenters","Delete","String","Delete")
+	gui.Form.gsWCs.AddGridviewFromDatatable("gvWCs","WorkCenters")
+	gui.Form.gsWCs.SuspendLayout()
+	
+	gui.Form.gsWCs.SetGridviewProperty("gvWCs","OptionsViewShowAutoFilterRow",True)
+	
+	gui.Form.gsWCs.SetColumnProperty("gvWCs","Delete","AllowEdit",False)
+	gui.Form.gsWCs.SetColumnProperty("gvWCs","Delete","ReadOnly",True)
+	
+	gui.Form.gsWCs.SetColumnProperty("gvWCs","Description","AllowEdit",True)
+	gui.Form.gsWCs.SetColumnProperty("gvWCs","Description","ReadOnly",False)	
+	
+	gui.Form.gsWCs.SetColumnProperty("gvWCs","Delete","HeaderHAlignment","Center")
+	
+	gui.Form.gsWCs.SetColumnProperty("gvWCs","WC","Width","35")
+	gui.Form.gsWCs.SetColumnProperty("gvWCs","Delete","Width","45")
+	
+	gui.Form.gsWCs.ColumnEdit("gvWCs","Delete","EditorButton","Delete")	
+	gui.Form.gsWCs.ResumeLayout()
+	gui.Form.gsWCs.MainView("gvWCs")	
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+
+Program.Sub.Bind_WCs.End
+
+Program.Sub.Bind_OpCodes.Start
+F.Intrinsic.Control.Try
+	v.local.sError.Declare 
+	v.local.sRet.Declare	
+
+	f.Intrinsic.Control.If(v.DataTable.OpCodes.Exists)
+		f.Data.DataTable.Close("OpCodes")
+	f.Intrinsic.Control.EndIf
+	f.Data.DataTable.CreateFromSQL("OpCodes","con","Select OpCode,Description from GCG_5813_OpCodes order by OpCode",True)
+	f.Data.DataTable.AddColumn("OpCodes","Delete","String","Delete")
+	gui.Form.gsOpCodes.AddGridviewFromDatatable("gvOpCodes","OpCodes")
+	gui.Form.gsOpCodes.SuspendLayout()
+	
+	gui.Form.gsOpCodes.SetGridviewProperty("gvOpCodes","OptionsViewShowAutoFilterRow",True)
+	
+	gui.Form.gsOpCodes.SetColumnProperty("gvOpCodes","Delete","AllowEdit",False)
+	gui.Form.gsOpCodes.SetColumnProperty("gvOpCodes","Delete","ReadOnly",True)
+	
+	gui.Form.gsOpCodes.SetColumnProperty("gvOpCodes","Description","AllowEdit",True)
+	gui.Form.gsOpCodes.SetColumnProperty("gvOpCodes","Description","ReadOnly",False)	
+	
+	gui.Form.gsOpCodes.SetColumnProperty("gvOpCodes","Delete","HeaderHAlignment","Center")
+	
+	gui.Form.gsOpCodes.SetColumnProperty("gvOpCodes","OpCode","Width","35")
+	gui.Form.gsOpCodes.SetColumnProperty("gvOpCodes","Delete","Width","45")
+	
+	gui.Form.gsOpCodes.ColumnEdit("gvOpCodes","Delete","EditorButton","Delete")	
+	gui.Form.gsOpCodes.ResumeLayout()
+	gui.Form.gsOpCodes.MainView("gvOpCodes")	
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.Bind_OpCodes.End
+
+Program.Sub.cmdBrowseUser_Click.Start
+F.Intrinsic.Control.Try
+	v.local.sError.Declare 
+	v.local.sRet.Declare
+
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	Function.Intrinsic.UI.CommonBrowser(10,"",v.Local.sRet)
+	F.Intrinsic.Control.If(Variable.Local.sRet.IsCancel,=,False)
+		F.Intrinsic.String.Split(Variable.Local.sRet,"*!*",Variable.Local.sRet)
+		gui.Form.txtUser.Text(v.Local.sRet(1))
+		f.Intrinsic.String.Build("{0} {1}",v.Local.sRet(3).Trim,v.Local.sRet(4).Trim,v.Local.sRet)
+		gui.Form.txtName.Text(v.Local.sRet)
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdBrowseUser_Click.End
+
+Program.Sub.cmdBrowseWC_Click.Start
+F.Intrinsic.Control.Try
+	v.local.sError.Declare 
+	v.local.sRet.Declare
+
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	f.Intrinsic.UI.Browser("Work Group","Con","SELECT WORK_GROUP as WorkGroup_WorkCenter,'W_Group' as Type, DESCR as Description FROM V_WORKGROUP_HEAD union Select Machine as WorkGroup_WorkCenter,'W_Center' as Type,WC_Name as Description from WorkCenters order by Type desc","Work Group/Work Center*!*Type*!*Description","500*!*200*!*1000",v.Local.sRet)
+	'Function.Intrinsic.UI.CommonBrowser(400,"",v.Local.sRet)
+	F.Intrinsic.Control.If(Variable.Local.sRet.IsCancel,=,False)
+		F.Intrinsic.String.Split(Variable.Local.sRet,"*!*",Variable.Local.sRet)
+		gui.Form.txtWC.Text(v.Local.sRet(0))
+		gui.Form.txtWCDescr.Text(v.Local.sRet(2).Trim)
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdBrowseWC_Click.End
+
+Program.Sub.cmdBrowseOpCode_Click.Start
+F.Intrinsic.Control.Try
+	v.local.sError.Declare 
+	v.local.sRet.Declare
+
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	Function.Intrinsic.UI.Browser("Select Employee","con","Select Operation,Machine,Description,LMO from Op_Codes Order by LMO,Operation","Operation*!*Machine*!*Description*!*LMO","100*!*200*!*500*!*100",Variable.Local.sRet)
+	F.Intrinsic.Control.If(Variable.Local.sRet.IsCancel,=,False)
+		F.Intrinsic.String.Split(Variable.Local.sRet,"*!*",Variable.Local.sRet)
+		gui.Form.txtOpCode.Text(v.Local.sRet(0))
+		gui.Form.txtOpCodeDescr.Text(v.Local.sRet(1).Trim)
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdBrowseOpCode_Click.End
+
+Program.Sub.cmdSaveUser_Click.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sRet.Declare	
+	v.Local.sName.Declare
+	v.Local.sUser.Declare
+	v.Local.sNoteType.Declare
+	v.Local.iCnt.Declare
+	
+	v.Local.sName.Set(v.Screen.Form!txtName.Text.Trim)
+	v.Local.sUser.Set(v.Screen.Form!txtUser.Text.Trim)
+	
+	F.ODBC.Connection!ccon.OpenCommonConnection
+	f.Intrinsic.String.Build("Select GS_User,First_Name + ' ' + Middle_Name + ' ' + Last_name as Name from User_Information where ltrim(rtrim(GS_User)) = '{0}'",v.Local.sUser,v.Local.sSQL)
+	f.ODBC.Connection!ccon.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+	f.ODBC.Connection!ccon.Close
+	
+	f.Intrinsic.Control.If(v.Local.sRet,=,"")
+		f.Intrinsic.UI.Msgbox("Please enter a valid user.","Attention")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+	v.Local.sUser.Set(v.Local.sRet(0))
+	f.Intrinsic.String.Left(v.Local.sRet(1).Trim,30,v.Local.sName)
+	
+	f.Intrinsic.Control.SelectCase(v.Screen.Form!ddlNoteType.Text)
+		f.Intrinsic.Control.Case("All")
+			v.Local.sNoteType.Set("Doc. Compl,Doc. Note,User 1,User 2,User 3,User 4,User 5,Note 1,Note 2,Note 3,Note 4,Note 5,Note 6,Note 7,Note 8,Note 9,Note 10,Note 11,Note 12,Note 13,Note 14,Note 15")		
+		f.Intrinsic.Control.Case("All User Fields")
+			v.Local.sNoteType.Set("User 1,User 2,User 3,User 4,User 5")
+		f.Intrinsic.Control.Case("All Note Fields")
+			v.Local.sNoteType.Set("Note 1,Note 2,Note 3,Note 4,Note 5,Note 6,Note 7,Note 8,Note 9,Note 10,Note 11,Note 12,Note 13,Note 14,Note 15")
+		f.Intrinsic.Control.CaseElse
+			v.Local.sNoteType.Set(v.Screen.Form!ddlNoteType.Text)
+		f.Intrinsic.Control.EndSelect	
+
+	f.Intrinsic.String.Split(v.Local.sNoteType,",",v.Local.sNoteType)
+	f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sNoteType.UBound,1)
+		f.Intrinsic.Control.CallSub("Process_1_NoteType","sUser",v.Local.sUser,"sName",v.Local.sName,"sNoteType",v.Local.sNoteType(v.Local.iCnt))
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+
+	f.Intrinsic.Control.CallSub("Bind_Users")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdSaveUser_Click.End
+
+Program.Sub.Process_1_NoteType.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sRet.Declare
+	v.Local.sName.Declare
+	
+	v.Local.sName.Set(v.Args.sName)
+
+	f.Intrinsic.String.Build("Select * from GCG_5813_Notes_Users where UserID = '{0}' and NoteType = '{1}'",v.Args.sUser,v.Args.sNoteType,v.Local.sSQL)
+	f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		f.Intrinsic.String.Build("Update GCG_5813_Notes_Users set ChangeNote = {0},DeleteNote = {1},AddNote = {2} where UserID = '{4}' and NoteType = '{3}'",v.Screen.Form!chkChange.Value,v.Screen.Form!chkDelete.Value,v.Screen.Form!chkAdd.Value,v.Args.sNoteType,v.Args.sUser,v.Local.sSQL)
+	f.Intrinsic.Control.Else
+		f.Intrinsic.String.Build("Insert Into GCG_5813_Notes_Users (UserID,Name,ChangeNote,DeleteNote,AddNote,NoteType) Values('{0}','{1}',{2},{3},{4},'{5}')",v.Args.sUser,v.Local.sName.PSQLFriendly,v.Screen.Form!chkChange.Value,v.Screen.Form!chkDelete.Value,v.Screen.Form!chkAdd.Value,v.Args.sNoteType,v.Local.sSQL)
+	f.Intrinsic.Control.EndIf
+	f.ODBC.Connection!con.Execute(v.Local.sSQL)	
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.Process_1_NoteType.End
+
+Program.Sub.gsUsers_RowCellClick.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sRet.Declare
+
+	f.Intrinsic.Control.If(v.Args.Column.UCase,=,"DELETE")
+		f.Intrinsic.String.Build("Delete from GCG_5813_Notes_Users where UserID = '{0}' and NoteType = '{1}'",v.DataTable.NoteUsers(v.Args.RowIndex).UserID!FieldValString,v.DataTable.NoteUsers(v.Args.RowIndex).NoteType!FieldValString,v.Local.sSQL)
+		f.ODBC.Connection!con.Execute(v.Local.sSQL)
+		f.Data.DataTable.DeleteRow("NoteUsers",v.Args.RowIndex)
+		f.Data.DataTable.AcceptChanges("NoteUsers")	
+	f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.gsUsers_RowCellClick.End
+
+Program.Sub.gsUsers_CellValueChanged.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sRet.Declare
+	v.Local.iLoc.Declare
+
+	f.Intrinsic.Control.SelectCase(v.Args.Column.UCase)
+		f.Intrinsic.Control.CaseAny("ADDNOTE","CHANGENOTE","DELETENOTE")
+			f.Intrinsic.Control.If(v.Args.Value,=,True)
+				v.Local.iLoc.Set(1)
+			f.Intrinsic.Control.Else
+				v.Local.iLoc.Set(0)
+			f.Intrinsic.Control.EndIf
+			f.Intrinsic.String.Build("Update GCG_5813_Notes_Users set {2} = {3} where UserID = '{0}' and NoteType = '{1}'",v.DataTable.NoteUsers(v.Args.RowIndex).UserID!FieldValString,v.DataTable.NoteUsers(v.Args.RowIndex).NoteType!FieldValString,v.Args.Column,v.Local.iLoc,V.Local.sSQL)				
+			f.ODBC.Connection!con.Execute(v.Local.sSQL)
+	f.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.gsUsers_CellValueChanged.End
+
+Program.Sub.cmdSaveWC_Click.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sRet1.Declare
+	v.Local.sRet2.Declare
+	v.Local.sRet.Declare
+	v.Local.sWC.Declare
+	v.Local.sDescr.Declare
+
+	v.Local.sWC.Set(v.Screen.Form!txtWC.Text.Trim)
+	f.Intrinsic.String.Left(v.Screen.Form!txtWCDescr.Text.Trim,30,v.Local.sDescr)
+	
+	f.Intrinsic.String.Build("Select * from Workcenters where ltrim(rtrim(Machine)) = '{0}'",v.Local.sWC,v.Local.sSQL)
+	f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet1)
+	f.Intrinsic.String.Build("SELECT * FROM V_WORKGROUP_HEAD where Work_Group =  '{0}'",v.Local.sWC,v.Local.sSQL)
+	f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet2)
+	f.Intrinsic.Control.If(v.Local.sRet1,=,"",and,v.Local.sRet2,=,"")
+		f.Intrinsic.UI.Msgbox("Please enter a valid Work Group/Work Center.","Attention")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.String.Build("Select * from GCG_5813_WC where WC = '{0}'",v.Local.sWC,v.Local.sSQL)
+	f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		f.Intrinsic.String.Build("Update GCG_5813_WC set Description = '{0}' where WC = '{1}'",v.Local.sDescr.PSQLFriendly,v.Local.sWC,v.Local.sSQL)
+	f.Intrinsic.Control.Else
+		f.Intrinsic.String.Build("Insert into GCG_5813_WC (WC,Description) values ('{0}','{1}')",v.Local.sWC,v.Local.sDescr.PSQLFriendly,v.Local.sSQL)
+	f.Intrinsic.Control.EndIf
+	f.ODBC.Connection!con.Execute(v.Local.sSQL)
+	
+	f.Intrinsic.Control.CallSub("Bind_WCs")	
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdSaveWC_Click.End
+
+Program.Sub.cmdSaveOpCode_Click.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sRet.Declare
+	v.Local.sOpCode.Declare
+	v.Local.sDescr.Declare
+
+	v.Local.sOpCode.Set(v.Screen.Form!txtOpCode.Text.Trim)
+	f.Intrinsic.String.Left(v.Screen.Form!txtOpCodeDescr.Text.Trim,30,v.Local.sDescr)
+	
+	f.Intrinsic.String.Build("Select * from Op_Codes where ltrim(rtrim(Operation)) = '{0}'",v.Local.sOpCode,v.Local.sSQL)
+	f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,=,"")
+		f.Intrinsic.UI.Msgbox("Please enter a valid OpCode.","Attention")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.String.Build("Select * from GCG_5813_OpCodes where OpCode = '{0}'",v.Local.sOpCode,v.Local.sSQL)
+	f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		f.Intrinsic.String.Build("Update GCG_5813_OpCodes set Description = '{0}' where OpCode = '{1}'",v.Local.sDescr.PSQLFriendly,v.Local.sOpCode,v.Local.sSQL)
+	f.Intrinsic.Control.Else
+		f.Intrinsic.String.Build("Insert into GCG_5813_OpCodes (OpCode,Description) values ('{0}','{1}')",v.Local.sOpCode,v.Local.sDescr.PSQLFriendly,v.Local.sSQL)
+	f.Intrinsic.Control.EndIf
+	f.ODBC.Connection!con.Execute(v.Local.sSQL)
+	
+	f.Intrinsic.Control.CallSub("Bind_OpCodes")	
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdSaveOpCode_Click.End
+
+Program.Sub.gsOpCodes_CellValueChanged.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sRet.Declare
+	v.Local.sDescr.Declare
+
+	f.Intrinsic.Control.SelectCase(v.Args.Column.UCase)
+		f.Intrinsic.Control.CaseAny("DESCRIPTION")
+			f.Intrinsic.String.Left(v.DataTable.OpCodes(v.Args.RowIndex).Description!FieldValString,30,v.Local.sDescr)
+			f.Intrinsic.String.Build("Update GCG_5813_OpCodes set Description = '{1}' where OpCode = '{0}'",v.DataTable.OpCodes(v.Args.RowIndex).OpCode!FieldValString,v.Local.sDescr.PSQLFriendly,V.Local.sSQL)		
+			f.ODBC.Connection!con.Execute(v.Local.sSQL)
+	f.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.gsOpCodes_CellValueChanged.End
+
+Program.Sub.gsWCs_CellValueChanged.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sRet.Declare
+	v.Local.sDescr.Declare
+
+	f.Intrinsic.Control.SelectCase(v.Args.Column.UCase)
+		f.Intrinsic.Control.CaseAny("DESCRIPTION")
+			f.Intrinsic.String.Left(v.DataTable.WorkCenters(v.Args.RowIndex).Description!FieldValString,30,v.Local.sDescr)
+			f.Intrinsic.String.Build("Update GCG_5813_WC set Description = '{1}' where WC = '{0}'",v.DataTable.WorkCenters(v.Args.RowIndex).WC!FieldValString,v.Local.sDescr.PSQLFriendly,V.Local.sSQL)		
+			f.ODBC.Connection!con.Execute(v.Local.sSQL)
+	f.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.gsWCs_CellValueChanged.End
+
+Program.Sub.gsWCs_RowCellClick.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sRet.Declare
+
+	f.Intrinsic.Control.If(v.Args.Column.UCase,=,"DELETE")
+		f.Intrinsic.String.Build("Delete from GCG_5813_WC where WC = '{0}'",v.DataTable.WorkCenters(v.Args.RowIndex).WC!FieldValString,v.Local.sSQL)
+		f.ODBC.Connection!con.Execute(v.Local.sSQL)
+		f.Data.DataTable.DeleteRow("Workcenters",v.Args.RowIndex)
+		f.Data.DataTable.AcceptChanges("Workcenters")	
+	f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.gsWCs_RowCellClick.End
+
+Program.Sub.gsOpCodes_RowCellClick.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sRet.Declare
+
+	f.Intrinsic.Control.If(v.Args.Column.UCase,=,"DELETE")
+		f.Intrinsic.String.Build("Delete from GCG_5813_OpCodes where OpCode = '{0}'",v.DataTable.OpCodes(v.Args.RowIndex).OpCode!FieldValString,v.Local.sSQL)
+		f.ODBC.Connection!con.Execute(v.Local.sSQL)
+		f.Data.DataTable.DeleteRow("OpCodes",v.Args.RowIndex)
+		f.Data.DataTable.AcceptChanges("OpCodes")	
+	f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.gsOpCodes_RowCellClick.End
+
+Program.Sub.Serialize.Start
+F.Intrinsic.Control.Try
+
+	V.Local.sError.Declare
+	v.Local.sUserID.Declare
+	V.Local.sSerialize.Declare
+	v.Local.sSQL.Declare
+	
+	F.Global.Security.GetUserID(v.Caller.User,v.Caller.CompanyCode,v.Local.sUserID)
+	'Delete old registry records
+	F.ODBC.Connection!ccon.OpenCommonConnection
+	f.Intrinsic.String.Build("Delete From Gs_Registry Where User_ID = '{0}' and Company = '{1}' and Reg_ID = '5813' and Seq = '1002' and Program = '{2}';",v.Local.sUserID,v.Caller.CompanyCode,"gvNotes",v.Local.sSQL)
+	F.ODBC.Connection!ccon.Execute(v.Local.sSQL)
+	F.ODBC.Connection!ccon.Close	
+	
+	'gvNotes
+	Gui.Form.gsUsers.Serialize("gvNotes",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvNotes",5813,1002,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project 5813 - GCG_5813_Maintenance.g2u: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub("Unload") 
+F.Intrinsic.Control.EndTry
+Program.Sub.Serialize.End
+
+Program.Sub.Deserialize.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare	
+	V.Local.sSerialize.Declare
+
+	'gvNotes
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvNotes",5813,1002,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		Gui.Form.gsUsers.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project 5813 - GCG_5813_Maintenance.g2u: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub("Unload") 
+F.Intrinsic.Control.EndTry
+Program.Sub.Deserialize.End
